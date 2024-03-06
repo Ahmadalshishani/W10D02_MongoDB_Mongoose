@@ -1,10 +1,11 @@
 const express = require("express");
-const {getAllTodos, createTodo} = require("../controllers/todos")
+const {getAllTodos, createTodo, getDoneTodos,updateTodo,deleteTodo} = require("../controllers/todos")
 const todosRouter = express.Router();
 
 todosRouter.get("/",getAllTodos);
+todosRouter.get("/:isCompleted",getDoneTodos);
 todosRouter.post("/" , createTodo);
-todosRouter.put("/:name");
-todosRouter.delete("/:name");
+todosRouter.put("/:task",updateTodo);
+todosRouter.delete("/:task",deleteTodo);
 
 module.exports = todosRouter;
